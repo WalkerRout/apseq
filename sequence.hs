@@ -8,7 +8,7 @@
 module Nucleotide where
 
 
--- Imports (N/A)
+-- Imports
 import qualified Sequence.DNA as DNA
 import qualified Sequence.RNA as RNA
 import qualified Sequence.Data as Data
