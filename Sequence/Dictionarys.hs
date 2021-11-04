@@ -12,17 +12,18 @@ import qualified Sequence.Data as Data
 
 aminoDict :: Data.Sequence -> Data.Sequence
 aminoDict s
-  | s == "UUU" || s == "UUC" = "Phe"
   | s == "UUA" || s == "UUG" || s == "CUU" || s == "CUC" || s == "CUA" || s == "CUG" = "Leu"
-  | s == "AUU" || s == "AUC" || s == "AUA" = "Ile"
-  | s == "AUG" = "Met"
-  | s == "GUU" || s == "GUC" || s == "GUA" || s == "GUG" = "Val"
   | s == "UCU" || s == "UCC" || s == "UCA" || s == "UCG" || s == "AGU" || s == "AGC" = "Ser"
+  | s == "CGU" || s == "CGC" || s == "CGA" || s == "CGG" || s == "AGA" || s == "AGG" = "Arg"
+  | s == "GGU" || s == "GGC" || s == "GGA" || s == "GGG" = "Gly"
+  | s == "GUU" || s == "GUC" || s == "GUA" || s == "GUG" = "Val"
   | s == "CCU" || s == "CCC" || s == "CCA" || s == "CCG" = "Pro"
   | s == "ACU" || s == "ACC" || s == "ACA" || s == "ACG" = "Thr"
   | s == "GCU" || s == "GCC" || s == "GCA" || s == "GCG" = "Ala"
-  | s == "UAU" || s == "UAC" = "Tyr"
   | s == "UAA" || s == "UAG" || s == "UGA" = "STOP"
+  | s == "AUU" || s == "AUC" || s == "AUA" = "Ile"
+  | s == "UAU" || s == "UAC" = "Tyr"
+  | s == "UUU" || s == "UUC" = "Phe"
   | s == "CAU" || s == "CAC" = "His"
   | s == "CAA" || s == "CAG" = "Gln"
   | s == "AAU" || s == "AAC" = "Asn"
@@ -30,9 +31,8 @@ aminoDict s
   | s == "GAU" || s == "GAC" = "Asp"
   | s == "GAA" || s == "GAG" = "Glu"
   | s == "UGU" || s == "UGC" = "Cys"
+  | s == "AUG" = "Met"
   | s == "UGG" = "Trp"
-  | s == "CGU" || s == "CGC" || s == "CGA" || s == "CGG" || s == "AGA" || s == "AGG" = "Arg"
-  | s == "GGU" || s == "GGC" || s == "GGA" || s == "GGG" = "Gly"
   | otherwise = error "Not valid codon!"
 
 
