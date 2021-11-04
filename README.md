@@ -1,2 +1,4 @@
 # APSequence
-Anatomy and Physiology 12 Nucleotide Sequence Verifier
+## Basic Nucleotide Verification and Polypeptide Synthesis
+
+N/A
