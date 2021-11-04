@@ -1,6 +1,6 @@
 
 -- Title: APSequence
--- Description: DNA sequence verfier with amino acid mapping
+-- Description: DNA sequence verifier with amino acid mapping
 -- Course: Anatomy and Physiology 12 
 -- Author: Walker Rout
 -- Creation Date: Wednesday, November 3rd, 2021
