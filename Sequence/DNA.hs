@@ -1,24 +1,14 @@
 
 module Sequence.DNA
-( nucDict
-, verifySequence
+( verifySequence
 , complementSequence
 ) where
 
 
 -- Imports
 import Data.Char
-
 import qualified Sequence.Data as Data
-
-
-nucDict :: Data.Base -> Data.Base
-nucDict s = case s of
-  'a' -> 't'
-  't' -> 'a'
-  'c' -> 'g' 
-  'g' -> 'c'
-  _ -> error "Not in pattern!"
+import qualified Sequence.Dictionarys as Dict
 
 
 verifySequence :: Data.Sequence -> Data.Sequence
@@ -26,5 +16,5 @@ verifySequence s = [x | x <- s, toLower x == 'a' || toLower x == 't' || toLower 
 
 
 complementSequence :: Data.Sequence -> [Data.Sequence]
-complementSequence sequ = [s, [nucDict x | x <- s]]
+complementSequence sequ = [s, [Dict.nucDNADict x | x <- s]]
   where s = verifySequence sequ

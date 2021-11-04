@@ -12,15 +12,11 @@ module Nucleotide where
 import qualified Sequence.DNA as DNA
 import qualified Sequence.RNA as RNA
 import qualified Sequence.Data as Data
+import qualified Sequence.Dictionarys as Dict
 
-
-aminoDict :: Data.Sequence -> Data.Sequence
-aminoDict s
-  | s == "ATC" || s == "ATC" = "A"
-  | otherwise = "A"
 
 main :: IO()
 main = do
   input <- getLine
-  print $ DNA.verifySequence "ABC"
+  print $ DNA.complementSequence input
   --print $ map (map toUpper) (complementRNASequence $ map toLower $ input)
