@@ -15,8 +15,18 @@ import qualified Sequence.Data as Data
 import qualified Sequence.Dictionarys as Dict
 
 
+
+splitCodon :: Data.Sequence -> [Data.Sequence]
+splitCodon [] = []
+splitCodon seq = initSeq : splitCodon tailSeq
+  where 
+    initSeq = take 3 seq
+    tailSeq = drop 3 seq
+
+
 main :: IO()
 main = do
   input <- getLine
-  print $ DNA.complementSequence input
+  print $ splitCodon $ (\(_:x:_) -> x) $ RNA.complementSequence input
   --print $ map (map toUpper) (complementRNASequence $ map toLower $ input)
+   
