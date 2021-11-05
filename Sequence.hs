@@ -5,7 +5,7 @@
 -- Author: Walker Rout
 -- Creation Date: Wednesday, November 3rd, 2021
 
-module Nucleotide where
+module Main where
 
 
 -- Imports
