@@ -53,3 +53,4 @@ nucRNADict s = case s of
   'C' -> 'G' 
   'G' -> 'C'
   _ -> error "Not in pattern!"
+
