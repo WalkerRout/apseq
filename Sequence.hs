@@ -58,6 +58,7 @@ codon = mapCodon . verifyCodonStart . verifyCodonStop . verifyCodonLength . spli
 
 main :: IO()
 main = do
+  putStrLn $ "Input Sense Strand Below: "
   input <- getLine
   print $ (codon . mRNA) (input)
   --print $ map (map toUpper) (complementRNASequence $ map toLower $ input)
