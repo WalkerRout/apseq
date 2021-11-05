@@ -12,6 +12,7 @@ module Main where
 import qualified Sequence.DNA as DNA
 import qualified Sequence.RNA as RNA
 import qualified Sequence.Data as Data
+import qualified Sequence.Conversions as Conv
 import qualified Sequence.Dictionaries as Dict
 
 
@@ -48,12 +49,16 @@ splitCodon seq
     tailSeq = drop 3 seq
 
 
-mRNA = (mapCodon . verifyCodonStart . verifyCodonStop . verifyCodonLength . splitCodon . (\(_:x:_) -> x) . RNA.complementSequence)
+mRNA = (\(_:x:_) -> x) . RNA.complementSequence . Conv.dnaToRNA . DNA.verifySequence
+
+codon = mapCodon . verifyCodonStart . verifyCodonStop . verifyCodonLength . splitCodon
+
+--mRNACodon = (mapCodon . verifyCodonStart . verifyCodonStop . verifyCodonLength . splitCodon . (\(_:x:_) -> x) . RNA.complementSequence . Conv.dnaToRNA . DNA.verifySequence)
 
 
 main :: IO()
 main = do
   input <- getLine
-  print $ mRNA input
+  print $ (codon . mRNA) (input)
   --print $ map (map toUpper) (complementRNASequence $ map toLower $ input)
    

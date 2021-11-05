@@ -3,6 +3,8 @@ module Sequence.Dictionaries
 ( aminoDict
 , nucRNADict
 , nucDNADict
+, nucDNAToRNADict
+, nucRNAToDNADict
 ) where
 
 
@@ -35,6 +37,16 @@ aminoDict s
   | s == "UAC" = "Met"
   | s == "ACC" = "Trp"
   | otherwise = error "Not valid codon!"
+
+
+nucDNAToRNADict :: Data.Base -> Data.Base
+nucDNAToRNADict 'T' = 'U'
+nucDNAToRNADict s = s
+
+
+nucRNAToDNADict :: Data.Base -> Data.Base
+nucRNAToDNADict 'U' = 'T'
+nucRNAToDNADict s = s
 
 
 nucDNADict :: Data.Base -> Data.Base

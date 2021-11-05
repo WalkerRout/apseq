@@ -16,5 +16,4 @@ verifySequence s = [x | x <- s, toLower x == 'a' || toLower x == 'u' || toLower 
 
 
 complementSequence :: Data.Sequence -> [Data.Sequence]
-complementSequence sequ = [s, [Dict.nucRNADict x | x <- s]]
-  where s = verifySequence sequ
+complementSequence sequ = [sequ, [Dict.nucRNADict x | x <- sequ]]
