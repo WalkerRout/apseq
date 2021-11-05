@@ -1,5 +1,5 @@
 
-module Sequence.Dictionarys
+module Sequence.Dictionaries
 ( aminoDict
 , nucRNADict
 , nucDNADict

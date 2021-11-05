@@ -8,7 +8,7 @@ module Sequence.DNA
 -- Imports
 import Data.Char
 import qualified Sequence.Data as Data
-import qualified Sequence.Dictionarys as Dict
+import qualified Sequence.Dictionaries as Dict
 
 
 verifySequence :: Data.Sequence -> Data.Sequence

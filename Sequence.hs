@@ -12,7 +12,7 @@ module Main where
 import qualified Sequence.DNA as DNA
 import qualified Sequence.RNA as RNA
 import qualified Sequence.Data as Data
-import qualified Sequence.Dictionarys as Dict
+import qualified Sequence.Dictionaries as Dict
 
 
 mapCodon :: [Data.Sequence] -> [Data.Amino]
