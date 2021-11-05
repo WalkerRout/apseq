@@ -1,5 +1,6 @@
 module Sequence.Data
-( Sequence
+( Amino
+, Sequence
 , Base
 ) where
 
@@ -11,5 +12,7 @@ module Sequence.Data
 
 
 -- Type Initialization
+type Amino = String
 type Sequence = String
 type Base = Char
+

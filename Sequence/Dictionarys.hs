@@ -11,7 +11,7 @@ import qualified Sequence.Data as Data
 
 
 -- tRNA Anti-Codons
-aminoDict :: Data.Sequence -> Data.Sequence
+aminoDict :: Data.Sequence -> Data.Amino
 aminoDict s
   | s == "AAU" || s == "AAC" || s == "GAA" || s == "GAG" || s == "GAU" || s == "GAC" = "Leu"
   | s == "AGA" || s == "AGG" || s == "AGU" || s == "AGC" || s == "UCA" || s == "UCG" = "Ser"
