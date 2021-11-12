@@ -68,7 +68,7 @@ main = do
   putStrLn $ "Input Sense Strand Below: "
   input <- getLine
 
-   putStrLn $ "mRNA Base Count: "
+  putStrLn $ "mRNA Base Count: "
   print $ count input
   putStrLn $ "Amino Acid Sequence: "
   print $ (unwords . mapCodon . codon . mRNA) (input) 
