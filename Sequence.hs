@@ -9,11 +9,16 @@ module Main where
 
 
 -- Imports
+import Data.List
 import qualified Sequence.DNA as DNA
 import qualified Sequence.RNA as RNA
 import qualified Sequence.Data as Data
 import qualified Sequence.Conversions as Conv
 import qualified Sequence.Dictionaries as Dict
+
+
+countCodons :: [Data.Sequence] -> [(Data.Base, Int)]
+countCodons seq = map (\x -> (head x, length x)) (seq)
 
 
 mapCodon :: [Data.Sequence] -> [Data.Amino]
@@ -51,15 +56,20 @@ splitCodon seq
 
 mRNA = (\(_:x:_) -> x) . RNA.complementSequence . Conv.dnaToRNA . DNA.verifySequence
 
-codon = mapCodon . verifyCodonStart . verifyCodonStop . verifyCodonLength . splitCodon
+codon = verifyCodonStart . verifyCodonStop . verifyCodonLength . splitCodon
 
---mRNACodon = (mapCodon . verifyCodonStart . verifyCodonStop . verifyCodonLength . splitCodon . (\(_:x:_) -> x) . RNA.complementSequence . Conv.dnaToRNA . DNA.verifySequence)
+count = countCodons . group . sort . concat . codon . mRNA
+
+--mRNACodon = (unwords . mapCodon . verifyCodonStart . verifyCodonStop . verifyCodonLength . splitCodon . (\(_:x:_) -> x) . RNA.complementSequence . Conv.dnaToRNA . DNA.verifySequence)
 
 
 main :: IO()
 main = do
   putStrLn $ "Input Sense Strand Below: "
   input <- getLine
-  print $ (codon . mRNA) (input)
-  --print $ map (map toUpper) (complementRNASequence $ map toLower $ input)
+
+   putStrLn $ "mRNA Base Count: "
+  print $ count input
+  putStrLn $ "Amino Acid Sequence: "
+  print $ (unwords . mapCodon . codon . mRNA) (input) 
    
