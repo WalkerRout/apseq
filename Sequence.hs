@@ -65,7 +65,7 @@ count = countCodons . group . sort . concat . codon . mRNA
 
 main :: IO()
 main = do
-  putStrLn $ "Input Sense Strand Below: "
+  putStrLn $ "Input Anti-Sense Strand Below: "
   input <- getLine
 
   putStrLn $ "\nmRNA Base Count: "
