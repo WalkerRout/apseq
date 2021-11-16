@@ -71,5 +71,9 @@ main = do
   putStrLn $ "\nmRNA Base Count: "
   print $ count input
   putStrLn $ "Amino Acid Sequence: "
-  print $ (unwords . mapCodon . codon . mRNA) (input) 
+  print $ (unwords . mapCodon . codon . mRNA) (input)
+  putStrLn $ "\n\aProgram Completed: Press any key to close"
+  _ <- getLine
+  putStrLn $ "exit"
+  
    
