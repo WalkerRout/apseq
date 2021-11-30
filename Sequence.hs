@@ -10,6 +10,7 @@ module Main where
 
 -- Imports
 import Data.List
+import System.IO
 import qualified Sequence.DNA as DNA
 import qualified Sequence.RNA as RNA
 import qualified Sequence.Data as Data
@@ -66,6 +67,7 @@ count = countCodons . group . sort . concat . codon . mRNA
 main :: IO()
 main = do
   putStrLn $ "\nInput Anti-Sense Strand Below (Start codon 'TAC' required first, stop codon optional as one will be appended if one is not specified): "
+  hFlush stdout
   input <- getLine
   
   putStrLn $ "\nmRNA Base Count: "
@@ -74,6 +76,7 @@ main = do
   print $ (unwords . mapCodon . codon . mRNA) (input)
 
   putStrLn $ "\n\aProgram Completed: Press any key to close"
+  hFlush stdout
   _ <- getLine
   putStrLn $ "exit"
    
