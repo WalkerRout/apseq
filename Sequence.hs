@@ -27,7 +27,7 @@ mapCodon seq = map Dict.aminoDict seq
 
 verifyCodonStart :: [Data.Sequence] -> [Data.Sequence]
 verifyCodonStart seq 
-  | head seq == "UAC" = seq
+  | head seq == "AUG" = seq
   | otherwise = error "Start codon required!"
 
 
@@ -65,15 +65,15 @@ count = countCodons . group . sort . concat . codon . mRNA
 
 main :: IO()
 main = do
-  putStrLn $ "\nInput Anti-Sense Strand Below (Start codon 'ATG' required first, stop codon optional as one will be appended if one is not specified): "
+  putStrLn $ "\nInput Anti-Sense Strand Below (Start codon 'TAC' required first, stop codon optional as one will be appended if one is not specified): "
   input <- getLine
-
+  
   putStrLn $ "\nmRNA Base Count: "
   print $ count input
   putStrLn $ "Amino Acid Sequence: "
   print $ (unwords . mapCodon . codon . mRNA) (input)
+
   putStrLn $ "\n\aProgram Completed: Press any key to close"
   _ <- getLine
   putStrLn $ "exit"
-  
    

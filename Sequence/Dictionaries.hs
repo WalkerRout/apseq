@@ -25,7 +25,7 @@ aminoDict s
   | s == "CGA" || s == "CGG" || s == "CGU" || s == "CGC" = "Ala"
   | s == "AUU" || s == "AUC" || s == "ACU" = "STOP"
   | s == "UAA" || s == "UAG" || s == "UAU" = "Ile"
-  | s == "AUA" || s == "AUG" = "Tyr"
+  | s == "AUA" || s == "UAC" = "Tyr"
   | s == "AAA" || s == "AAG" = "Phe"
   | s == "GUA" || s == "GUG" = "His"
   | s == "GUU" || s == "GUC" = "Gln"
@@ -34,7 +34,7 @@ aminoDict s
   | s == "CUA" || s == "CUG" = "Asp"
   | s == "CUU" || s == "CUC" = "Glu"
   | s == "ACA" || s == "ACG" = "Cys"
-  | s == "UAC" = "Met"
+  | s == "AUG" = "Met"
   | s == "ACC" = "Trp"
   | otherwise = error "Not valid codon!"
 
